@@ -20,12 +20,13 @@ register_post_type(fw()->extensions->get('slider')->get_post_type(), array(
 	'public' => false,
 	'publicly_queryable' => true,
 	'show_ui' => true,
-	'show_in_nav_menus' => false,
+	'show_in_nav_menus' => true,
+	'menu_icon' => 'dashicons-images-alt2',
 	'query_var' => true,
 	'rewrite' => array('slug' => fw()->extensions->get('slider')->get_post_type()),
 	'has_archive' => true,
 	'hierarchical' => false,
-	'menu_position' => null,
+	'menu_position' => 9,
 	'supports' => array(''),
 	'capabilities' => array(
 		'edit_post'         => 'edit_pages',
@@ -44,12 +45,5 @@ register_post_type(fw()->extensions->get('slider')->get_post_type(), array(
 		'edit_private_posts'    => 'edit_pages',
 		'edit_published_posts'  => 'edit_pages',
 	),
-	/**
-	 * Show in menu only if user has access to the Appearance (Themes) menu
-	 * else, the Sliders menu will appear, but when clicked on it
-	 * users with smaller privileges that does not have access to Appearance menu (for e.g. 'edit_pages' capability)
-	 * will see Access denied page
-	 */
-	'show_in_menu' => current_user_can('switch_themes') ? 'themes.php' : null,
 ));
 
