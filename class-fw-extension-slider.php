@@ -4,7 +4,7 @@
 require dirname( __FILE__ ) . '/includes/default/class-fw-extension-slider-default.php';
 
 class FW_Extension_Slider extends FW_Extension {
-	private $post_type = 'fw-slider';
+	private $post_type = 'sliders';
 
 	/**
 	 * @internal

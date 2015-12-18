@@ -11,13 +11,20 @@ if (!empty($choices)) {
 		),
 		'width' => array(
 			'type' => 'text',
-			'label' => __('Set width', 'fw'),
-			'value' => 300
+			'label' => __('Set item width', 'fw'),
+			'value' => 200
 		),
 		'height' => array(
 			'type' => 'text',
-			'label' => __('Set height', 'fw'),
+			'label' => __('Set item height', 'fw'),
 			'value' => 200
+		),
+		'xclass'	=> array(
+			'type'		=> 'text',
+			'label'		=> __( 'Extra Class', 'mepro' ),
+			'desc'		=> sprintf( __('Additional class for element, separate class with space. %s
+			You can add on-scroll animation class based on %s','mepro'),
+			'<br>', '<a href="http://mynameismatthieu.com/WOW/docs.html" target="_blank">WOW.js</a>' )
 		)
 	);
 } else {
