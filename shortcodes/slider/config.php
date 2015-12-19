@@ -8,4 +8,5 @@ $cfg['page_builder'] = array(
 	'title'       => __( 'Slider', 'fw' ),
 	'description' => __( 'Add a Slider', 'fw' ),
 	'tab'         => __( 'Media Elements', 'fw' ),
+	'disable_correction' => true,
 );

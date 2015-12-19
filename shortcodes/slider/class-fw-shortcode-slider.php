@@ -3,12 +3,22 @@
 }
 
 class FW_Shortcode_Slider extends FW_Shortcode {
+	
+	public function _init() {
+		add_filter( 'fw_slider_add_shortcode_extra_data', array( __CLASS__, '_filter_extra_data' ), 9, 2 );
+	}
+	
+	public function _filter_extra_data( $extra_data, $atts ) {
+		$extra_data['xclass'] = $atts['xclass'];
+		return $extra_data;
+	}
+	
 	protected function _render( $atts, $content = null, $tag = '' ) {
 		if ( ! empty( $atts['slider_id'] ) ) {
 			return fw()->extensions->get( 'slider' )->render_slider( $atts['slider_id'],
 				array(
-					'width'  => empty( $atts['width'] ) ? 300 : $atts['width'],
-					'height' => empty( $atts['height'] ) ? 200 : $atts['height'],
+					'width'  => empty( $atts['width'] ) ? '' : $atts['width'],
+					'height' => empty( $atts['height'] ) ? '' : $atts['height'],
 				), apply_filters( 'fw_slider_add_shortcode_extra_data', array(), $atts ) );
 		}
 	}

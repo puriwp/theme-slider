@@ -10,13 +10,15 @@ if (!empty($choices)) {
 			'choices' => fw()->extensions->get('slider')->get_populated_sliders_choices()
 		),
 		'width' => array(
-			'type' => 'text',
-			'label' => __('Set item width', 'fw'),
+			'type' => 'short-text',
+			'label' => __('Set item width (px)', 'fw'),
+			'desc' => __('Leave empty to auto calculate from image','fw'),
 			'value' => 200
 		),
 		'height' => array(
-			'type' => 'text',
-			'label' => __('Set item height', 'fw'),
+			'type' => 'short-text',
+			'label' => __('Set item height (px)', 'fw'),
+			'desc' => __('Leave empty to auto calculate from image','fw'),
 			'value' => 200
 		),
 		'xclass'	=> array(
