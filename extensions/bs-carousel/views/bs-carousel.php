@@ -5,8 +5,7 @@
 <?php
 $ID = 'bs-carousel-' . $data['settings']['post_id'];
 $extras = $data['settings']['extra'];
-$xclass = $extra_data['trans'] == 'slide' ? ' slide' : ' fade';
-$xclass .= !empty($extra_data['xclass']) ? ' '.$extra_data['xclass'] : '';
+$xclass = !empty($extra_data['xclass']) ? ' '.$extra_data['xclass'] : '';
 ?>
 
 <script type="text/javascript">
@@ -22,7 +21,7 @@ jQuery('document').ready(function (){
 });
 </script>
 
-<div id="<?php echo esc_attr($ID); ?>" class="carousel<?php echo esc_attr($xclass); ?>" data-ride="carousel">
+<div id="<?php echo esc_attr($ID); ?>" class="carousel slide<?php echo esc_attr($xclass); ?>" data-ride="carousel">
 
 	<?php if ( !empty($extras['indicators']) ) : ?>
   <ol class="carousel-indicators">

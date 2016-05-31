@@ -1,16 +1,6 @@
 <?php if (!defined('FW')) die('Forbidden');
 
 $options = array(
-	'trans' => array(
-		'label' => __('Transition', 'fw'),
-		'desc'  => __('Type of transition between slides', 'fw'),
-		'type'  => 'select',
-		'choices' => array(
-			'slide' => __('Slide', 'fw'),
-			'fade' => __('Fade', 'fw')
-		),
-		'value' => 'slide',
-	),
 	'interval' => array(
 		'type'	 => 'slider',
 		'label'  => __( 'Slide Interval (seconds)', 'fw' ),
