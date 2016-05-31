@@ -10,14 +10,12 @@ $xclass = !empty($extra_data['xclass']) ? ' '.$extra_data['xclass'] : '';
 
 <script type="text/javascript">
 jQuery('document').ready(function (){
-	if ( $.fn.carousel ) {
-		jQuery('#<?php echo esc_attr($ID); ?>').carousel({
-			interval: <?php echo !empty($extra_data['interval']) ? $extra_data['interval'].'000' : 'false'; ?>,
-			pause: <?php echo !empty($extra_data['pause']) ? '"hover"' : 'false'; ?>,
-			wrap: <?php echo !empty($extra_data['loop']) ? 'true' : 'false'; ?>,
-			keyboard: false
-		});
-	}
+	jQuery('#<?php echo esc_attr($ID); ?>').carousel({
+		interval: <?php echo !empty($extra_data['interval']) ? $extra_data['interval'].'000' : 'false'; ?>,
+		pause: <?php echo !empty($extra_data['pause']) ? '"hover"' : 'false'; ?>,
+		wrap: <?php echo !empty($extra_data['loop']) ? 'true' : 'false'; ?>,
+		keyboard: false
+	});
 });
 </script>
 
