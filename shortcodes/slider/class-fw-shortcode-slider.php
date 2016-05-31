@@ -5,7 +5,7 @@
 class FW_Shortcode_Slider extends FW_Shortcode {
 	
 	public function _init() {
-		add_filter( 'fw_slider_add_shortcode_extra_data', array( __CLASS__, '_filter_extra_data' ), 9, 2 );
+		add_filter( 'fw_slider_add_shortcode_extra_data', array( $this, '_filter_extra_data' ), 9, 2 );
 	}
 	
 	public function _filter_extra_data( $extra_data, $atts ) {
