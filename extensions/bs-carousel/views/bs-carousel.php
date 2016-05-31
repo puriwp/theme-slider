@@ -47,11 +47,11 @@ jQuery('document').ready(function (){
 
 	<?php if ( !empty($extras['controls']) ) : ?>
   <a class="left carousel-control" href="#<?php echo esc_attr($ID); ?>" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="fa fa-chevron-left" aria-hidden="true"></span>
     <span class="sr-only"><?php esc_attr_e( 'Previous', 'fw' ); ?></span>
   </a>
   <a class="right carousel-control" href="#<?php echo esc_attr($ID); ?>" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="fa fa-chevron-right" aria-hidden="true"></span>
     <span class="sr-only"><?php esc_attr_e( 'Next', 'fw' ); ?></span>
   </a>
 	<?php endif; ?>
