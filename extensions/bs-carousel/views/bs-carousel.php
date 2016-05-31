@@ -38,9 +38,10 @@ jQuery('document').ready(function (){
       <img src="<?php echo esc_attr(fw_resize($slide['src'], $dimensions['width'], $dimensions['height'], true)); ?>"
 					 alt="<?php echo esc_attr($slide['title']) ?>" width="<?php echo esc_attr($dimensions['width']); ?>"
 					 height="<?php echo esc_attr($dimensions['height']); ?>"/>
-			<?php if ( !empty( $slide['caption'] ) ) : ?>
+			<?php if ( !empty( $slide['title'] ) || !empty( $slide['desc'] ) ) : ?>
       <div class="carousel-caption">
-        <?php echo $slide['caption']; ?>
+        <?php echo !empty( $slide['title'] ) ? '<h3>'.$slide['title'].'</h3>' : ''; ?>
+        <?php echo !empty( $slide['desc'] ) ? '<p>'.$slide['desc'].'</p>' : ''; ?>
       </div>
 			<?php endif; ?>
     </div><!-- slides #<?php echo $i; ?> -->
