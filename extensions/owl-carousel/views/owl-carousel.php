@@ -44,7 +44,11 @@ jQuery(document).ready(function ($) {
 
 	<?php if ($slide['multimedia_type'] === 'video' && false !== wp_oembed_get($slide['src'])) : ?>
 		<div class="item-video" style="height:<?php echo esc_attr($dimensions['height']); ?>px;"><a class="owl-video" href="<?php echo esc_attr($slide['src']); ?>"></a></div>
-	<?php elseif($slide['multimedia_type'] === 'image'): ?>
+	<?php elseif($slide['multimedia_type'] === 'image'):
+		$img_style = '';
+		$img_style .= !empty($dimensions['width']) ? 'max-width:'.floatval($dimensions['width']).'px;' : '';
+		$img_style .= !empty($dimensions['height']) ? 'max-height:'.floatval($dimensions['height']).'px;' : '';
+		?>
 		<div class="item">
 		<?php if( !empty( $slide['extra']['showif'] ) ): ?>
 			<div class="owl-desc">
@@ -68,19 +72,17 @@ jQuery(document).ready(function ($) {
 				</div>
 			</div>
 			<img 
-				<?php echo !empty($dimensions['width']) ? 'width="'.esc_attr($dimensions['width']).'" ' : ''; ?>
-				<?php echo !empty($dimensions['height']) ? 'height="'.esc_attr($dimensions['height']).'" ' : ''; ?>
-				src="<?php echo esc_url(fw_resize($slide['src'], $dimensions['width'], $dimensions['height'], true)); ?>" 
+				style="<?php echo esc_attr($img_style); ?>"
+				src="<?php echo esc_url($slide['src']); ?>"
 				alt="<?php echo esc_attr($slide['title']); ?>" />
 		<?php else: ?>
 			<?php if (!empty($slide['extra']['link'])):
 				echo '<a href="'.esc_url($slide['extra']['link']).'" title="'.esc_attr($slide['title']).'">';
 			endif; ?>
-				<img 
-					<?php echo !empty($dimensions['width']) ? 'width="'.esc_attr($dimensions['width']).'" ' : ''; ?>
-					<?php echo !empty($dimensions['height']) ? 'height="'.esc_attr($dimensions['height']).'" ' : ''; ?>
-					src="<?php echo esc_url(fw_resize($slide['src'], $dimensions['width'], $dimensions['height'], true)); ?>" 
-					alt="<?php echo esc_attr($slide['title']); ?>" />
+			<img
+				style="<?php echo esc_attr($img_style); ?>"
+				src="<?php echo esc_url($slide['src']); ?>"
+				alt="<?php echo esc_attr($slide['title']); ?>" />
 			<?php echo !empty($slide['extra']['link']) ? '</a>' : ''; ?>
 		<?php endif; ?>
 		</div>
