@@ -19,7 +19,9 @@ class FW_Shortcode_Slider extends FW_Shortcode {
 				array(
 					'width'  => empty( $atts['width'] ) ? '' : $atts['width'],
 					'height' => empty( $atts['height'] ) ? '' : $atts['height'],
-				), apply_filters( 'fw_slider_add_shortcode_extra_data', array(), $atts ) );
+				),
+				apply_filters( 'fw_slider_add_shortcode_static', ( empty( $atts['static'] ) ? false : true ), $atts ),
+				apply_filters( 'fw_slider_add_shortcode_extra_data', array(), $atts ) );
 		}
 	}
 }

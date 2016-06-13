@@ -21,6 +21,11 @@ if (!empty($choices)) {
 			'desc' => __('Leave empty to auto calculate from image','fw'),
 			'value' => 200
 		),
+		'static' => array(
+			'type' => 'switch',
+			'label' => __('Include Static Files','fw'),
+			'desc' => __('Load all js and css required for this slider','fw')
+		),
 		'xclass'	=> array(
 			'type'		=> 'text',
 			'label'		=> __( 'Extra Class', 'mepro' ),

@@ -60,7 +60,7 @@ class FW_Slider extends FW_Extension
 
 	}
 
-	public function add_static()
+	private function add_static()
 	{
 		if ($js_path = $this->locate_path('/static/js')) {
 			foreach($this->list_files($js_path, 'js') as $js){
@@ -85,11 +85,13 @@ class FW_Slider extends FW_Extension
 		}
 	}
 
-	public function render_slider($post_id, $dimensions, $extra_data = array())
+	public function render_slider($post_id, $dimensions, $static = true, $extra_data = array())
 	{
-		add_action( 'wp_enqueue_scripts', array( $this, 'add_static' ) );
+		if ( !empty($static) && false !== $static ) {
+			$this->add_static();
+		}
 		$data = $this->get_frontend_data($post_id);
-		return $this->render_view($this->get_name(), compact('data', 'dimensions', 'extra_data'));
+		return $this->render_view($this->get_name(), compact('data', 'dimensions', 'static', 'extra_data'));
 	}
 
 	public function get_slider_options()
