@@ -60,7 +60,7 @@ class FW_Slider extends FW_Extension
 
 	}
 
-	private function add_static()
+	public function add_static()
 	{
 		if ($js_path = $this->locate_path('/static/js')) {
 			foreach($this->list_files($js_path, 'js') as $js){
@@ -87,7 +87,7 @@ class FW_Slider extends FW_Extension
 
 	public function render_slider($post_id, $dimensions, $extra_data = array())
 	{
-		$this->add_static();
+		add_action( 'wp_enqueue_scripts', array( $this, 'add_static' ) );
 		$data = $this->get_frontend_data($post_id);
 		return $this->render_view($this->get_name(), compact('data', 'dimensions', 'extra_data'));
 	}
