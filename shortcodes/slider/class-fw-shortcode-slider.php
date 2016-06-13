@@ -15,12 +15,13 @@ class FW_Shortcode_Slider extends FW_Shortcode {
 	
 	protected function _render( $atts, $content = null, $tag = '' ) {
 		if ( ! empty( $atts['slider_id'] ) ) {
+			$static = ( empty( $atts['static'] ) || $atts['static'] == 'no' ) ? false : true;
 			return fw()->extensions->get( 'slider' )->render_slider( $atts['slider_id'],
 				array(
 					'width'  => empty( $atts['width'] ) ? '' : $atts['width'],
 					'height' => empty( $atts['height'] ) ? '' : $atts['height'],
 				),
-				apply_filters( 'fw_slider_add_shortcode_static', ( empty( $atts['static'] ) ? false : true ), $atts ),
+				apply_filters( 'fw_slider_add_shortcode_static', $static, $atts ),
 				apply_filters( 'fw_slider_add_shortcode_extra_data', array(), $atts ) );
 		}
 	}

@@ -23,9 +23,17 @@ if (!empty($choices)) {
 		),
 		'static' => array(
 			'type' => 'switch',
-			'value' => true,
+			'value' => 'yes',
 			'label' => __('Include Static Files','fw'),
-			'desc' => __('Load all js and css required for this slider','fw')
+			'desc' => __('Load all js and css required for this slider','fw'),
+			 'left-choice' => array(
+        'value' => 'yes',
+        'label' => __('Yes', 'fw')
+			),
+			'right-choice' => array(
+				'value' => 'no',
+				'label' => __('No', 'fw')
+			),
 		),
 		'xclass'	=> array(
 			'type'		=> 'text',
