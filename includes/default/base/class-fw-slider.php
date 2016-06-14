@@ -85,13 +85,13 @@ class FW_Slider extends FW_Extension
 		}
 	}
 
-	public function render_slider($post_id, $dimensions, $static = true, $extra_data = array())
+	public function render_slider($post_id, $dimensions, $extra_data = array())
 	{
-		if ( !empty($static) && false !== $static ) {
+		if ( empty( $atts['static'] ) || $atts['static'] == 'yes' ) {
 			$this->add_static();
 		}
 		$data = $this->get_frontend_data($post_id);
-		return $this->render_view($this->get_name(), compact('data', 'dimensions', 'static', 'extra_data'));
+		return $this->render_view($this->get_name(), compact('data', 'dimensions', 'extra_data'));
 	}
 
 	public function get_slider_options()
