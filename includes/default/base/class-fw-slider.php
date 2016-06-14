@@ -87,7 +87,7 @@ class FW_Slider extends FW_Extension
 
 	public function render_slider($post_id, $dimensions, $extra_data = array())
 	{
-		if ( empty( $atts['static'] ) || $atts['static'] == 'yes' ) {
+		if ( empty( $extra_data['static'] ) || false !== $extra_data['static'] ) {
 			$this->add_static();
 		}
 		$data = $this->get_frontend_data($post_id);

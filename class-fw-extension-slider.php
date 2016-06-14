@@ -498,11 +498,10 @@ class FW_Extension_Slider extends FW_Extension {
 
 	public function render_slider( $post_id, $dimensions, $extra_data = array() ) {
 		$slider_name = fw_get_db_post_option( $post_id, $this->get_name() . '/selected' );
+		$static = ( empty($extra_data['static']) || $extra_data['static'] == 'yes' ) ? true : false;
 
 		if ( ! is_null( $this->get_child( $slider_name ) ) ) {
-			if ( isset( $extra_data['static'] ) ) {
-				$extra_data['static'] = apply_filters( 'fw_slider_enqueue_static_files', $extra_data['static'], $slider_name, $post_id );
-			}
+			$extra_data['static'] = apply_filters( 'fw_slider_enqueue_static_files', $static, $slider_name, $post_id );
 			return $this->get_child( $slider_name )->render_slider( $post_id, $dimensions, $extra_data );
 		}
 	}
